@@ -1,0 +1,17 @@
+{
+  "name": "graphql-playgound",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/tooooo1/graphql-playgound.git",
+  "author": "il <wer4272@nate.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "client": "yarn workspace client start",
+    "server": "yarn workspace server start"
+  }
+}
