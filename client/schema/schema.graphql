@@ -1,0 +1,12 @@
+type Query {
+  timeline: [Timeline!]!
+}
+
+interface Node {
+  id: ID!
+}
+
+type Timeline implements Node {
+  id: ID!
+  message: String!
+}
