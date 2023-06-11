@@ -1,21 +1,20 @@
 "use client";
 
-import { graphql, useFragment } from "react-relay/hooks";
-import type { MemoCard_timeline$key } from "../graphql/queries/MemoCard_timeline.graphql";
+import { graphql, useLazyLoadQuery } from "react-relay/hooks";
 
-const MemoCardFragment = graphql`
-  fragment MemoCard_timeline on Timeline {
-    message
-  }
-`;
+function MemoCard() {
+  const data = useLazyLoadQuery(
+    graphql`
+      query MemoCardQuery {
+        timeline {
+          message
+        }
+      }
+    `,
+    {}
+  );
 
-interface MemoCardProps {
-  memo: MemoCard_timeline$key;
-}
-
-function MemoCard(props: MemoCardProps) {
-  const data = useFragment(MemoCardFragment, props.memo);
-  return <div>{data.message}</div>;
+  return <div>{data?.timeline?.message}</div>;
 }
 
 export default MemoCard;

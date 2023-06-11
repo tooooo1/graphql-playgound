@@ -1,7 +1,8 @@
 "use client";
 
-import { RelayEnvironmentProvider } from "react-relay";
+import { RelayEnvironmentProvider } from "react-relay/hooks";
 import { environment } from "../relay";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "퉁이리 GraphQL + Relay",
@@ -17,7 +18,7 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <RelayEnvironmentProvider environment={environment}>
-          {children}
+          <Suspense fallback={<div>loading...</div>}>{children}</Suspense>
         </RelayEnvironmentProvider>
       </body>
     </html>
