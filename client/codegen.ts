@@ -1,12 +1,14 @@
 import type { CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
-  // ...
-  schema: "./schema/schema.graphql",
-  ignoreNoDocuments: true,
+  overwrite: true,
+  schema: "./graphql/schema.graphql",
   generates: {
-    "./gql/schema.ts": {
+    "graphql/__generated__/types.ts": {
       plugins: ["typescript", "typescript-resolvers"],
+    },
+    "graphql/__generated__/typedefs.ts": {
+      plugins: ["graphql/codegen-typedefs.js"],
     },
   },
 };
