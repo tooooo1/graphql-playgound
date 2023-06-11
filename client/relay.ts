@@ -9,7 +9,7 @@ import {
 // Define a function that fetches the results of an operation (query/mutation/etc)
 // and returns its results as a Promise:
 const fetchQuery: FetchFunction = (operation, variables) => {
-  return fetch("/graphql", {
+  return fetch("/api/graphql", {
     method: "POST",
     headers: {
       // Add authentication and other headers here

@@ -1,3 +1,5 @@
+"use client";
+
 import { Resolvers } from "./__generated__/types";
 
 const resolvers: Resolvers = {

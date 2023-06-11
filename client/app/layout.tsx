@@ -4,11 +4,6 @@ import { RelayEnvironmentProvider } from "react-relay/hooks";
 import { environment } from "../relay";
 import { Suspense } from "react";
 
-export const metadata = {
-  title: "퉁이리 GraphQL + Relay",
-  description: "GraphQL + Relay playground",
-};
-
 export default function RootLayout({
   children,
 }: {
