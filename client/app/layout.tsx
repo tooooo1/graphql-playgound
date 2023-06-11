@@ -1,3 +1,8 @@
+"use client";
+
+import { RelayEnvironmentProvider } from "react-relay";
+import { environment } from "../relay";
+
 export const metadata = {
   title: "퉁이리 GraphQL + Relay",
   description: "GraphQL + Relay playground",
@@ -10,7 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <RelayEnvironmentProvider environment={environment}>
+          {children}
+        </RelayEnvironmentProvider>
+      </body>
     </html>
   );
 }

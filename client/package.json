@@ -8,13 +8,18 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "codegen": "graphql-codegen"
+    "generate:relay": "relay-compiler",
+    "generate:schema": "graphql-codegen --config codegen.ts",
+    "generate": "yarn generate:schema && yarn generate:relay",
+    "prebuild": "yarn generate",
+    "predev": "yarn generate"
   },
   "dependencies": {
     "graphql": "^16.6.0",
     "next": "^13.4.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-relay": "^15.0.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^4.0.1",
@@ -23,8 +28,11 @@
     "@graphql-codegen/typescript-resolvers": "^4.0.0",
     "@graphql-tools/schema": "^10.0.0",
     "@types/react": "18.2.9",
+    "babel-plugin-relay": "^15.0.0",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.4",
+    "relay-compiler": "^15.0.0",
+    "relay-config": "^12.0.1",
     "typescript": "5.0.4",
     "webpack": "^5.86.0"
   }
